@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg-l" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a0a10"/>
+      <stop offset="100%" stop-color="#2d0d1a"/>
+    </linearGradient>
+    <linearGradient id="accent-l" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c9637a" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#c9637a"/>
+      <stop offset="100%" stop-color="#c9637a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="shimmer-l" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f2c4d0" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#f2c4d0" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow-l">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="600" height="400" fill="url(#bg-l)"/>
+
+  <!-- Shimmer superior -->
+  <rect width="600" height="200" fill="url(#shimmer-l)"/>
+
+  <!-- Decoración geométrica - arcos izquierda -->
+  <circle cx="-30" cy="200" r="180" fill="none" stroke="#c9637a" stroke-width="0.5" opacity="0.25"/>
+  <circle cx="-30" cy="200" r="220" fill="none" stroke="#c9637a" stroke-width="0.5" opacity="0.12"/>
+
+  <!-- Decoración geométrica - arcos derecha -->
+  <circle cx="630" cy="200" r="180" fill="none" stroke="#c9637a" stroke-width="0.5" opacity="0.25"/>
+  <circle cx="630" cy="200" r="220" fill="none" stroke="#c9637a" stroke-width="0.5" opacity="0.12"/>
+
+  <!-- Ilustración: silueta de lencería estilizada -->
+  <!-- Cuerpo del corset / bustier -->
+  <g transform="translate(300, 175)" opacity="0.9">
+    <!-- Forma principal del bustier -->
+    <path d="M-55,-90 C-60,-70 -65,-30 -60,10 C-55,50 -40,75 0,80 C40,75 55,50 60,10 C65,-30 60,-70 55,-90 Z" fill="none" stroke="#c9637a" stroke-width="1.2" opacity="0.5"/>
+    <!-- Detalle Copa izquierda -->
+    <path d="M-55,-90 C-45,-100 -20,-105 0,-90 C-20,-75 -50,-60 -55,-90 Z" fill="#c9637a" opacity="0.15"/>
+    <path d="M-55,-90 C-45,-100 -20,-105 0,-90 C-20,-75 -50,-60 -55,-90 Z" fill="none" stroke="#c9637a" stroke-width="1" opacity="0.7"/>
+    <!-- Detalle Copa derecha -->
+    <path d="M55,-90 C45,-100 20,-105 0,-90 C20,-75 50,-60 55,-90 Z" fill="#c9637a" opacity="0.15"/>
+    <path d="M55,-90 C45,-100 20,-105 0,-90 C20,-75 50,-60 55,-90 Z" fill="none" stroke="#c9637a" stroke-width="1" opacity="0.7"/>
+    <!-- Línea central -->
+    <line x1="0" y1="-90" x2="0" y2="80" stroke="#c9637a" stroke-width="0.8" opacity="0.4"/>
+    <!-- Tirantes izquierda -->
+    <path d="M-55,-90 C-60,-120 -40,-140 -25,-145" fill="none" stroke="#c9637a" stroke-width="0.8" opacity="0.5"/>
+    <!-- Tirantes derecha -->
+    <path d="M55,-90 C60,-120 40,-140 25,-145" fill="none" stroke="#c9637a" stroke-width="0.8" opacity="0.5"/>
+    <!-- Detalles horizontales del bustier -->
+    <path d="M-60,10 C-40,8 40,8 60,10" fill="none" stroke="#c9637a" stroke-width="0.7" opacity="0.4"/>
+    <path d="M-58,30 C-38,28 38,28 58,30" fill="none" stroke="#c9637a" stroke-width="0.7" opacity="0.3"/>
+    <!-- Lazo central -->
+    <path d="M-10,-45 C-18,-55 -8,-65 0,-58 C8,-65 18,-55 10,-45 C5,-40 -5,-40 -10,-45 Z" fill="#c9637a" opacity="0.5"/>
+    <!-- Puntos decorativos -->
+    <circle cx="-30" cy="-30" r="1.5" fill="#f2c4d0" opacity="0.6"/>
+    <circle cx="30" cy="-30" r="1.5" fill="#f2c4d0" opacity="0.6"/>
+  </g>
+
+  <!-- Línea de acento inferior a la ilustración -->
+  <rect x="240" y="285" width="120" height="0.5" fill="url(#accent-l)" opacity="0.8"/>
+
+  <!-- Puntos decorativos esparcidos -->
+  <circle cx="80" cy="60" r="1" fill="#f2c4d0" opacity="0.3"/>
+  <circle cx="520" cy="80" r="1.5" fill="#f2c4d0" opacity="0.3"/>
+  <circle cx="150" cy="340" r="1" fill="#f2c4d0" opacity="0.25"/>
+  <circle cx="450" cy="330" r="1" fill="#f2c4d0" opacity="0.25"/>
+  <circle cx="40" cy="200" r="2" fill="#c9637a" opacity="0.2"/>
+  <circle cx="560" cy="180" r="2" fill="#c9637a" opacity="0.2"/>
+
+  <!-- Línea superior decorativa -->
+  <rect x="0" y="0" width="600" height="2" fill="url(#accent-l)" opacity="0.6"/>
+
+  <!-- Categoría etiqueta superior -->
+  <text x="300" y="52" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="10" letter-spacing="5" fill="#c9637a" opacity="0.9" font-weight="400">INTIMACY</text>
+
+  <!-- Nombre principal -->
+  <text x="300" y="335" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="38" letter-spacing="6" fill="#f2c4d0" font-weight="400">LENCERÍA</text>
+
+  <!-- Línea decorativa bajo título -->
+  <rect x="240" y="347" width="120" height="0.5" fill="url(#accent-l)"/>
+
+  <!-- Subtítulo -->
+  <text x="300" y="372" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="11" letter-spacing="3" fill="#c9637a" opacity="0.8">Seduce con estilo</text>
+
+  <!-- Borde sutil -->
+  <rect x="1" y="1" width="598" height="398" fill="none" stroke="#c9637a" stroke-width="0.5" opacity="0.2" rx="2"/>
+</svg>

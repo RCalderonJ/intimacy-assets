@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intimacy – Catálogo Preview</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0d0808;
+    min-height: 100vh;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    padding: 48px 24px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .brand {
+    font-size: 11px;
+    letter-spacing: 8px;
+    color: #c9637a;
+    margin-bottom: 12px;
+    opacity: 0.8;
+  }
+
+  h1 {
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 10px;
+    color: #f5e6eb;
+    margin-bottom: 16px;
+  }
+
+  .header-line {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #c9637a, transparent);
+    margin: 0 auto;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .card {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+  }
+
+  .card:hover .overlay {
+    opacity: 1;
+  }
+
+  .card img, .card object {
+    width: 100%;
+    display: block;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 56px;
+    color: rgba(255,255,255,0.2);
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+    h1 { font-size: 28px; letter-spacing: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="brand">INTIMACY SEX SHOP</p>
+  <h1>CATÁLOGO</h1>
+  <div class="header-line"></div>
+</header>
+
+<div class="grid">
+
+  <div class="card">
+    <img src="lenceria.svg" alt="Lencería">
+    <div class="overlay"></div>
+  </div>
+
+  <div class="card">
+    <img src="consumibles.svg" alt="Consumibles">
+    <div class="overlay"></div>
+  </div>
+
+  <div class="card">
+    <img src="juguetes.svg" alt="Juguetes">
+    <div class="overlay"></div>
+  </div>
+
+  <div class="card">
+    <img src="cuidado-personal.svg" alt="Cuidado Personal">
+    <div class="overlay"></div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 INTIMACY SEX SHOP MX</p>
+</footer>
+
+</body>
+</html>
