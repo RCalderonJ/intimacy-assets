@@ -25,23 +25,18 @@
     overflow: hidden;
   }
 
-  .bg {
-    position: fixed; inset: 0; z-index: 0;
-  }
+  .bg { position: fixed; inset: 0; z-index: 0; }
   .bg::before {
-    content: '';
-    position: absolute; inset: 0;
+    content: ''; position: absolute; inset: 0;
     background:
       radial-gradient(ellipse 60% 50% at 20% 30%, rgba(201,99,122,0.12) 0%, transparent 70%),
       radial-gradient(ellipse 50% 60% at 80% 70%, rgba(201,99,122,0.08) 0%, transparent 70%);
   }
 
   .particle {
-    position: absolute;
-    border-radius: 50%;
+    position: absolute; border-radius: 50%;
     background: var(--rose);
-    animation: float linear infinite;
-    opacity: 0;
+    animation: float linear infinite; opacity: 0;
   }
   @keyframes float {
     0%   { transform: translateY(110vh) scale(0); opacity: 0; }
@@ -59,8 +54,7 @@
   @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 
   #age-gate::before {
-    content: '';
-    position: fixed; inset: 0;
+    content: ''; position: fixed; inset: 0;
     background: rgba(10,4,6,0.92);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -83,11 +77,9 @@
   }
 
   .modal::before, .modal::after {
-    content: '';
-    position: absolute;
+    content: ''; position: absolute;
     width: 40px; height: 40px;
-    border-color: rgba(201,99,122,0.5);
-    border-style: solid;
+    border-color: rgba(201,99,122,0.5); border-style: solid;
   }
   .modal::before { top:14px; left:14px; border-width:1px 0 0 1px; }
   .modal::after  { bottom:14px; right:14px; border-width:0 1px 1px 0; }
@@ -103,10 +95,8 @@
   .age-badge {
     display: inline-flex; align-items: center; justify-content: center;
     width: 68px; height: 68px;
-    border: 1px solid rgba(201,99,122,0.5);
-    border-radius: 50%;
-    margin: 0 auto 28px;
-    position: relative;
+    border: 1px solid rgba(201,99,122,0.5); border-radius: 50%;
+    margin: 0 auto 28px; position: relative;
     animation: pulseBorder 3s ease-in-out infinite;
   }
   @keyframes pulseBorder {
@@ -114,10 +104,8 @@
     50%      { border-color:rgba(201,99,122,0.9); box-shadow:0 0 18px 4px rgba(201,99,122,0.15); }
   }
   .age-badge::before {
-    content: '';
-    position: absolute; inset: 4px;
-    border: 0.5px solid rgba(201,99,122,0.2);
-    border-radius: 50%;
+    content: ''; position: absolute; inset: 4px;
+    border: 0.5px solid rgba(201,99,122,0.2); border-radius: 50%;
   }
   .age-number {
     font-family: 'Cormorant Garamond', serif;
@@ -153,8 +141,7 @@
   .btn-group { display: flex; gap: 12px; flex-direction: column; }
 
   .btn {
-    display: block; width: 100%;
-    padding: 15px 24px;
+    display: block; width: 100%; padding: 15px 24px;
     font-family: 'Montserrat', sans-serif;
     font-size: 11px; font-weight: 400;
     letter-spacing: 3px; text-transform: uppercase;
@@ -197,7 +184,6 @@
   .legal a { color: rgba(201,99,122,0.5); text-decoration: none; }
   .legal a:hover { color: var(--rose); }
 
-  /* Pantalla de salida */
   #exit-screen {
     display: none; position: fixed; inset: 0; z-index: 200;
     background: var(--dark);
@@ -278,34 +264,52 @@
     bg.appendChild(p);
   }
 
+  // Destino al confirmar edad
+  var SITIO_PRINCIPAL = 'https://www.intimacy.com.mx/intimacy';
+  var SITIO_SALIDA    = 'https://www.google.com';
+
+  // Función de redirección: funciona tanto en iframe (Google Sites)
+  // como cargado directamente, usando window.top para salir del iframe
+  function redirigir(url) {
+    try {
+      // Intenta redirigir la ventana padre (Google Sites)
+      window.top.location.href = url;
+    } catch (e) {
+      // Si hay restricción de cross-origin, usa la ventana actual
+      window.location.href = url;
+    }
+  }
+
   // ── CONFIRMAR EDAD ──
-  // Guarda la sesión y redirige al sitio principal
   function confirmAge() {
-    sessionStorage.setItem('intimacy-age-verified', 'true');
+    // Guarda preferencia en sessionStorage del iframe
+    try { sessionStorage.setItem('intimacy-age-verified', 'true'); } catch(e) {}
+
     const gate = document.getElementById('age-gate');
     gate.style.transition = 'opacity 0.5s';
     gate.style.opacity = '0';
-    setTimeout(() => {
-      window.location.href = 'https://www.intimacy.com.mx/intimacy';
+
+    setTimeout(function() {
+      redirigir(SITIO_PRINCIPAL);
     }, 500);
   }
 
   // ── DENEGAR EDAD ──
-  // Muestra pantalla de despedida y redirige a Google
   function denyAge() {
     const gate = document.getElementById('age-gate');
     gate.style.transition = 'opacity 0.4s';
     gate.style.opacity = '0';
-    setTimeout(() => {
+
+    setTimeout(function() {
       gate.style.display = 'none';
       const exit = document.getElementById('exit-screen');
       exit.style.display = 'flex';
       exit.style.opacity = '0';
       exit.style.transition = 'opacity 0.5s';
-      requestAnimationFrame(() => { exit.style.opacity = '1'; });
-      // Redirige a Google tras 2 segundos
-      setTimeout(() => {
-        window.location.href = 'https://www.google.com';
+      requestAnimationFrame(function() { exit.style.opacity = '1'; });
+
+      setTimeout(function() {
+        redirigir(SITIO_SALIDA);
       }, 2000);
     }, 400);
   }
